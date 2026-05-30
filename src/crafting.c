@@ -111,6 +111,11 @@ void getCraftingOutput (PlayerData *player, uint8_t *count, uint16_t *item) {
             *count = 6;
             return;
           }
+          if (
+            first_item == I_stone ||
+            first_item == I_snow_block
+          ) break;
+          __attribute__((fallthrough));
         case I_iron_ingot:
         case I_gold_ingot:
         case I_diamond:
@@ -247,6 +252,7 @@ void getCraftingOutput (PlayerData *player, uint8_t *count, uint16_t *item) {
             first_item == I_oak_planks ||
             first_item == I_cobblestone
           ) break;
+          __attribute__((fallthrough));
         case I_leather:
           // Helmet recipes
           if (
